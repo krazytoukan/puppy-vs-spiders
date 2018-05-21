@@ -10,7 +10,7 @@ document.addEventListener("keydown", keyDownHandler);
 
 // function For Player Two Movement
 function keyDownHandler(e) {
-   //Right Arrow
+    //Right Arrow
     if(e.keyCode == 39 && (($playerTwo.offset().left + $playerTwo.width()) < ($gameboard.offset().left + $gameboard.width()))) {
         $playerTwo.animate({
             left: "+=15px"
@@ -34,17 +34,21 @@ function keyDownHandler(e) {
             top: "-=15px"
         },10);
     }
+}
+
+document.addEventListener("keyup", keyUpHandler);
+function keyUpHandler(e){
     //Spider drop on Q
-    else if(e.keyCode == 81){
+    if(e.keyCode == 81){
         new SpiderThrow()
-        }
+    }
     //Spider drop on W
     else if(e.keyCode == 87){
         new SpiderThrow()
         }
     //Spider drop on E
     else if(e.keyCode == 69){
-        new SpiderThrow()
+        new SpiderThrow();
         }
     //Spider drop on R
     else if(e.keyCode == 82){
@@ -62,6 +66,7 @@ function SpiderThrow(){
     var $newSpider = $("<img class='spider' src='images/spider.png'>");
     $gameboard.append($newSpider);
 
+
     //Interval for Spider movement
     var spiderMovement = setInterval(function(){
         $newSpider.css({top: "+=10px"});
@@ -77,6 +82,5 @@ function SpiderThrow(){
         $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top){
             console.log("collision detected")
         }
-        
-    }, 30)
+    }, 50)
 }
