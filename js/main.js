@@ -36,45 +36,47 @@ function keyDownHandler(e) {
     }
     //Spider drop on Q
     else if(e.keyCode == 81){
-        $spider.animate({
-            top: "640px"
-        }, 3000
-        )
-    }
+        new SpiderThrow()
+        }
     //Spider drop on W
     else if(e.keyCode == 87){
-        $spider.animate({
-            top: "640px"
-        }, 3000
-        )
-    }
+        new SpiderThrow()
+        }
     //Spider drop on E
     else if(e.keyCode == 69){
-        $spider.animate({
-            top: "640px"
-        }, 3000
-        )
-    }
+        new SpiderThrow()
+        }
     //Spider drop on R
     else if(e.keyCode == 82){
-        $spider.animate({
-            top: "640px"
-        }, 3000
-        )
-    }
+        new SpiderThrow()
+        }
     //Spider drop on Space
     else if(e.keyCode == 32){
-        $spider.animate({
-            top: "640px"
-        }, 3000
-        )
+        new SpiderThrow()
     }
 }
 
-function spiderThrow(){
-    //function for creating new spider
-    // newSpider.Animate(shoot spider to the bottom of the screen)
+//Constructor function for making spider
+function SpiderThrow(){
+    //Linking to spider Image and appending to game board
+    var $newSpider = $("<img class='spider' src='images/spider.png'>");
+    $gameboard.append($newSpider);
+
+    //Interval for Spider movement
+    var spiderMovement = setInterval(function(){
+        $newSpider.css({top: "+=10px"});
+        if(($newSpider.offset().top + $newSpider.height()) > $gameboard.height()) {
+            $newSpider.remove()
+            clearInterval(spiderMovement)
+        } 
+        
+        //Collision Detection for Spider to Corgi
+        else if ($newSpider.offset().left < ($playerTwo.offset().left + $playerTwo.width()) &&
+        $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left &&
+        $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
+        $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top){
+            console.log("collision detected")
+        }
+        
+    }, 30)
 }
-
-//Collision Detection
-
