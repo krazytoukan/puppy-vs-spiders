@@ -3,6 +3,7 @@ console.log("JS loaded")
 var $playerTwo = $("#player-two");
 var $gameboard = $("#gameboard");
 var $spider = $(".spider")
+var spiderCounter = 0;
 
 //Create Movement for player two based on key press
 
@@ -40,23 +41,28 @@ document.addEventListener("keyup", keyUpHandler);
 function keyUpHandler(e){
     //Spider drop on Q
     if(e.keyCode == 81){
-        new SpiderThrow()
+        new SpiderThrow();
+        spiderCounter += 1;
     }
     //Spider drop on W
     else if(e.keyCode == 87){
         new SpiderThrow()
-        }
+        spiderCounter += 1;
+    }
     //Spider drop on E
     else if(e.keyCode == 69){
         new SpiderThrow();
-        }
+        spiderCounter += 1;
+    }
     //Spider drop on R
     else if(e.keyCode == 82){
         new SpiderThrow()
-        }
+        spiderCounter += 1;
+    }
     //Spider drop on Space
     else if(e.keyCode == 32){
         new SpiderThrow()
+        spiderCounter += 1;
     }
 }
 
@@ -80,7 +86,8 @@ function SpiderThrow(){
         $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left &&
         $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
         $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top){
-            console.log("collision detected")
+            console.log("collision detected");
+            $newSpider.remove()
         }
     }, 50)
 }
