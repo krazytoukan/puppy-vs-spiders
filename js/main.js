@@ -54,6 +54,7 @@ window.addEventListener('keyup', function (e) {
             top: "-=10px"
         },10);
     }
+    bambiWins();
 }
 // Set Interval to constantly be checking player two position
 var checkPlayerTwoPosition = setInterval(playerTwoMovement, 40);
@@ -82,7 +83,7 @@ function playerOneMovement(){
 }
 
 //Interval Checking Player one holding things down
-var checkPlayerOnePosition = setInterval(playerOneMovement, 650);
+var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
 
 //Constructor function for making spider
 function SpiderThrow(key){
@@ -120,5 +121,13 @@ function SpiderThrow(key){
             spiderCounter = 0
             $spiderDodge.html("Bambi was DEVOURED!");
         }
-    }, 30)
+    }, 40)
+}
+
+
+function bambiWins(){
+    if(spiderCounter > 50){
+    alert("Holy Shit! Bambi Beat the Spiders!");
+    spiderCounter = 0
+    }
 }
