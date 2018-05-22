@@ -22,3 +22,15 @@
     padding: 0;
     position: absolute;
 }
+
+#top-titleline{
+    font-family: "Creepster", cursive;
+    font-size: 72px;
+    margin: 0 auto;
+    text-align: center;
+    color: whitesmoke
+}
+
+body {
+    background-color: black
+}

@@ -3,6 +3,7 @@ console.log("JS loaded")
 var $playerTwo = $("#player-two");
 var $gameboard = $("#gameboard");
 var $spider = $(".spider")
+var $titleLine = $("#top-titleline");
 var spiderCounter = 0;
 
 //Create Movement for player two based on key press
@@ -84,7 +85,7 @@ function SpiderThrow(key){
     //Interval for Spider movement
     var spiderMovement = setInterval(function(){
         $newSpider.css({top: "+=10px"});
-        if(($newSpider.offset().top + $newSpider.height()) > $gameboard.height()) {
+        if(($newSpider.offset().top + $newSpider.height()) > $gameboard.height() + $titleLine.height()) {
             $newSpider.remove()
             clearInterval(spiderMovement)
         } 
