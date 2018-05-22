@@ -23,12 +23,20 @@
     position: absolute;
 }
 
-#top-titleline{
+#top-titleline, p, h2{
     font-family: "Creepster", cursive;
     font-size: 72px;
     margin: 0 auto;
     text-align: center;
     color: whitesmoke
+}
+
+h2{
+    font-size: 32px;
+    color: red;
+}
+p {
+    font-size: 28px;
 }
 
 body {
