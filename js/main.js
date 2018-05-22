@@ -19,12 +19,14 @@ function keyDownHandler(e) {
         $playerTwo.animate({
             left: "+=20px"
         },10);
+        $playerTwo.addClass('flip')
     }
     //Left Arrow
     else if(e.keyCode == 37 && ($playerTwo.offset().left) > ($gameboard.offset().left)) {
         $playerTwo.animate({
             left: "-=20px"
         },10);
+        $playerTwo.removeClass('flip')
     }
     //Down Arrow
     else if(e.keyCode == 40 && (($playerTwo.offset().top + $playerTwo.height()) < ($gameboard.offset().top + $gameboard.height()))) {

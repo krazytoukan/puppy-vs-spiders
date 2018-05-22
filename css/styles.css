@@ -42,3 +42,8 @@ p {
 body {
     background-color: black
 }
+
+.flip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
