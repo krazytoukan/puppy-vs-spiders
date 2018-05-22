@@ -47,3 +47,7 @@ body {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
+
+  #hi-score {
+      color: rgb(223, 189, 1)
+  }

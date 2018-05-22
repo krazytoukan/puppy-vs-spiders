@@ -7,6 +7,8 @@ var $titleLine = $("#top-titleline");
 var spiderCounter = 0;
 var $spiderDodge = $("#counter")
 var trackedKeys = new Array();
+var $hiScore = $("#hi-score")
+var hiScore = 0;
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -100,7 +102,7 @@ function SpiderThrow(key){
         $newSpider.css({left: $gameboard.offset().left + $newSpider.width() + $newSpider.width() + $newSpider.width() + $newSpider.width()})
     }
     
-    //Interval for Spider movement
+    //Interval for Spider movement and Spider Counter/HiScore
     var spiderMovement = setInterval(function(){
         $newSpider.css({top: "+=10px"});
         if(($newSpider.offset().top + $newSpider.height()) > $gameboard.height() + $titleLine.height()) {
@@ -108,6 +110,10 @@ function SpiderThrow(key){
             clearInterval(spiderMovement)
             spiderCounter += 1;
             $spiderDodge.html(spiderCounter + " Spiders Dodged!")
+            if(hiScore < spiderCounter) {
+                hiScore = spiderCounter;
+                $hiScore.html(hiScore + " Spiders Dogged(?!)")
+            }
         } 
         
         //Collision Detection for Spider to Corgi
@@ -125,9 +131,10 @@ function SpiderThrow(key){
 }
 
 
+//Secret Option where Bambi Wins
 function bambiWins(){
     if(spiderCounter > 50){
     alert("Holy Shit! Bambi Beat the Spiders!");
-    spiderCounter = 0
+    spiderCounter = 0;
     }
 }
