@@ -1,7 +1,7 @@
 #gameboard{
     width: 800px;
     height: 600px;
-    background-color: grey;
+    background-image: url("../images/dungeon-background.gif");
     border-radius: 10px;
     margin: 0 auto;
 }
@@ -33,7 +33,7 @@
 
 h2{
     font-size: 32px;
-    color: red;
+    color: #ba3422;
 }
 p {
     font-size: 28px;
