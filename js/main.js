@@ -8,11 +8,18 @@ var spiderCounter = 0;
 var $spiderDodge = $("#counter")
 var trackedKeys = new Array();
 
+//Prevent moving window with Space and Arrow Keys
+document.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 //Create Movement for player two based on key press
 
 document.addEventListener("keydown", function(e){
     trackedKeys.keys = (trackedKeys.keys || []);
-    console.log(trackedKeys)
     trackedKeys.keys[e.keyCode] = (e.type == "keydown");
 });
 window.addEventListener('keyup', function (e) {
@@ -75,7 +82,7 @@ function playerOneMovement(){
 }
 
 //Interval Checking Player one holding things down
-var checkPlayerOnePosition = setInterval(playerOneMovement, 950);
+var checkPlayerOnePosition = setInterval(playerOneMovement, 650);
 
 //Constructor function for making spider
 function SpiderThrow(key){
@@ -113,5 +120,5 @@ function SpiderThrow(key){
             spiderCounter = 0
             $spiderDodge.html("Bambi was DEVOURED!");
         }
-    }, 50)
+    }, 30)
 }
