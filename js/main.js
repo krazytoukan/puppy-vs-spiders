@@ -90,10 +90,10 @@ function SpiderThrow(key){
         } 
         
         //Collision Detection for Spider to Corgi
-        else if ($newSpider.offset().left < ($playerTwo.offset().left + $playerTwo.width()) &&
-        $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left &&
+        else if ($newSpider.offset().left < ($playerTwo.offset().left + $playerTwo.width() - 40) &&
+        $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left + 40 &&
         $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
-        $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top){
+        $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top + 50){
             console.log("colision detected");
             $newSpider.remove()
             clearInterval(spiderMovement)
