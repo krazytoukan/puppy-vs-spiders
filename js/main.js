@@ -31,32 +31,32 @@ window.addEventListener('keyup', function (e) {
     //Right Arrow
     if(trackedKeys.keys && trackedKeys.keys[39] && (($playerTwo.offset().left + $playerTwo.width()) < ($gameboard.offset().left + $gameboard.width()))) {
         $playerTwo.animate({
-            left: "+=18px"
+            left: "+=10px"
         },10);
         $playerTwo.addClass('flip')
     }
     //Left Arrow
     if(trackedKeys.keys && trackedKeys.keys[37] && ($playerTwo.offset().left) > ($gameboard.offset().left)) {
         $playerTwo.animate({
-            left: "-=18px"
+            left: "-=10px"
         },10);
         $playerTwo.removeClass('flip')
     }
     //Down Arrow
     if(trackedKeys.keys && trackedKeys.keys[40] && (($playerTwo.offset().top + $playerTwo.height()) < ($gameboard.offset().top + $gameboard.height()))) {
         $playerTwo.animate({
-            top: "+=18px"
+            top: "+=10px"
         },10);
     }
     //Up Arrow
     if(trackedKeys.keys && trackedKeys.keys[38] && ($playerTwo.offset().top > $gameboard.offset().top)) {
         $playerTwo.animate({
-            top: "-=18px"
+            top: "-=10px"
         },10);
     }
 }
 // Set Interval to constantly be checking player two position
-var checkPlayerTwoPosition = setInterval(playerTwoMovement, 75);
+var checkPlayerTwoPosition = setInterval(playerTwoMovement, 40);
 
 function playerOneMovement(){
     //Spider drop on Q
