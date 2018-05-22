@@ -1,5 +1,4 @@
-console.log("JS loaded")
-
+//Global Variables for  Javascript
 var $playerTwo = $("#player-two");
 var $gameboard = $("#gameboard");
 var $spider = $(".spider")
@@ -61,6 +60,7 @@ window.addEventListener('keyup', function (e) {
 // Set Interval to constantly be checking player two position
 var checkPlayerTwoPosition = setInterval(playerTwoMovement, 40);
 
+//Player One Constructor Functions by Keys. The Numbers refer to JS key code numbers for the actual constructor function below.
 function playerOneMovement(){
     //Spider drop on Q
     if(trackedKeys.keys && trackedKeys.keys[81]){
@@ -102,12 +102,13 @@ function SpiderThrow(key){
         $newSpider.css({left: $gameboard.offset().left + $newSpider.width() + $newSpider.width() + $newSpider.width() + $newSpider.width()})
     }
     
-    //Interval for Spider movement and Spider Counter/HiScore
+    //Interval for Spider movement
     var spiderMovement = setInterval(function(){
         $newSpider.css({top: "+=10px"});
         if(($newSpider.offset().top + $newSpider.height()) > $gameboard.height() + $titleLine.height()) {
             $newSpider.remove()
             clearInterval(spiderMovement)
+    //Code for Tracking Spiders Thrown and Hi-Score
             spiderCounter += 1;
             $spiderDodge.html(spiderCounter + " Spiders Dodged!")
             if(hiScore < spiderCounter) {
@@ -121,7 +122,7 @@ function SpiderThrow(key){
         $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left + 40 &&
         $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
         $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top + 50){
-            console.log("colision detected");
+            console.log("collision detected");
             $newSpider.remove()
             clearInterval(spiderMovement)
             spiderCounter = 0
