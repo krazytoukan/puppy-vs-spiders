@@ -23,7 +23,8 @@
     font-family: "Creepster", cursive;
     position: absolute;
     border-radius: 5px;
-    text-align: center
+    text-align: center;
+    display: inline-block;
 }
 
 .spider{

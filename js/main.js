@@ -86,10 +86,16 @@ function playerOneMovement(){
     }
 }
 
-//Start Button Event listener which starts interval for Spider Movement,adds Bambi to the board at the bottom center of the page, and removes the start button from display
+//Naming the Player One position Interval
+
+var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
+clearInterval(checkPlayerOnePosition);
+
+//Start Button Event listener which adds Bambi to the board at the bottom center of the page, and removes the start button from display
 $startButton.on("click", function(){
-    var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
+    checkPlayerOnePosition;
     $playerTwo.css({display: "inline-block", left: $gameboard.offset().left + ($gameboard.width() / 2), top: $gameboard.height()});
+    $spider.css({display: "inline-block"})
     $(this).css({display: "none"});
     $bambiLossText.css({display: "none"})
     })
@@ -133,6 +139,13 @@ function SpiderThrow(key){
             clearInterval(spiderMovement)
             spiderCounter = 0
             $spiderDodge.html("Bambi was DEVOURED!");
+            //Remove Bambi from GameBoard after Getting hit
+            $playerTwo.css({display: "none"});
+            // Remove Interval Checking for Player One Position and Allowing Player One to Throw Spiders
+            clearInterval(checkPlayerOnePosition);
+            //Add in Bambi Loss Paragraph and Start Button
+            $bambiLossText.css({display: "block"})
+            $startButton.css({display: "inline-block"})
         }
     }, 40)
 }
