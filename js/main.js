@@ -8,6 +8,7 @@ var $spiderDodge = $("#counter")
 var trackedKeys = new Array();
 var $hiScore = $("#hi-score")
 var hiScore = 0;
+var $startButton = $("#start-button")
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -17,8 +18,9 @@ document.addEventListener("keydown", function(e) {
     }
 }, false);
 
-//Create Movement for player two based on key press
 
+
+//Create Movement for player two based on key press
 document.addEventListener("keydown", function(e){
     trackedKeys.keys = (trackedKeys.keys || []);
     trackedKeys.keys[e.keyCode] = (e.type == "keydown");
@@ -85,7 +87,13 @@ function playerOneMovement(){
 }
 
 //Interval Checking Player one holding things down
-var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
+
+//Start Button Event listener which starts interval for Spider Movement,adds Bambi to the Board, and removes the start button from display
+$startButton.on("click", function(){
+    var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
+    $playerTwo.css({display: "inline-block"});
+    $(this).css({display: "none"})
+    })
 
 //Constructor function for making spider
 function SpiderThrow(key){
