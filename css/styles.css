@@ -67,10 +67,14 @@ body {
 
 #hi-score {
     color: rgb(223, 189, 1)
-  }
+}
 
 #bambi-loss, #bambi-win {
-    color: #ba3422;
+    color: whitesmoke;
     display: none;
     padding-top: 300px
+}
+
+#bambi-win{
+    color: rgb(223, 189, 1)  
 }
