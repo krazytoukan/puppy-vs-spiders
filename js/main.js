@@ -16,7 +16,7 @@ var checkPlayerTwoPosition
 var backgroundMusic = new Audio("audio/background-music.mp3")
 backgroundMusic.loop = true;
 var yelp = new Audio("audio/yelp.wav")
-var vicBark = new Audio ("audio/vicbark.wav")
+var vicBark = new Audio ("audio/vicBark.wav")
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -142,6 +142,7 @@ function SpiderThrow(key){
         $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left + 40 &&
         $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
         $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top + 50){
+        //Game End process for when Bambi gets eaten
             $newSpider.remove()
             clearInterval(spiderMovement)
             spiderCounter = 0
@@ -159,9 +160,9 @@ function SpiderThrow(key){
 //Secret Option where Bambi Wins
 function bambiWins(){
     if(spiderCounter > 50){
+        vicBark.play()
         gameEnd();
         $bambiWinText.css({display: "block"});
-        vicBark.play()
     }
 }
 

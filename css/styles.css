@@ -22,12 +22,11 @@
     top: 300px;
 }
 
-#start-button{
+#start-button, .p1cont{
     font-size: 40px;
     color: #ba3422;
     border: solid 5px #ba3422;
     font-family: "Creepster", cursive;
-    /* position: absolute; */
     border-radius: 5px;
     text-align: center;
     display: inline-block;
