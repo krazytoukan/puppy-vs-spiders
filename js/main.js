@@ -100,6 +100,7 @@ $startButton.on("click", function(){
     $(this).css({display: "none"});
     $bambiLossText.css({display: "none"})
     $bambiWinText.css({display: "none"})
+    spiderCounter = 0
     })
 
 //Constructor function for making spider
@@ -159,7 +160,6 @@ function bambiWins(){
         $playerTwo.css({display: "none"});
         $bambiWinText.css({display: "block"});
         $startButton.css({display: "inline-block"})
-        spiderCounter = 0;
         clearInterval(checkPlayerOnePosition)
     }
 }
