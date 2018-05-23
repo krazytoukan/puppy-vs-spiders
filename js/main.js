@@ -12,6 +12,11 @@ var $startButton = $("#start-button")
 var $bambiLossText = $("#bambi-loss")
 var $bambiWinText = $("#bambi-win")
 var checkPlayerOnePosition
+var checkPlayerTwoPosition
+var backgroundMusic = new Audio("audio/background-music.mp3")
+backgroundMusic.loop = true;
+var yelp = new Audio("audio/yelp.wav")
+var vicBark = new Audio ("audio/vicbark.wav")
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -61,8 +66,6 @@ window.addEventListener('keyup', function (e) {
     }
     bambiWins();
 }
-// Set Interval to constantly be checking player two position
-var checkPlayerTwoPosition = setInterval(playerTwoMovement, 40);
 
 //Player One Constructor Functions by Keys. The Numbers refer to JS key code numbers for the actual constructor function below.
 function playerOneMovement(){
@@ -88,25 +91,26 @@ function playerOneMovement(){
     }
 }
 
-//Naming the Player One position Interval
 
-// clearInterval(checkPlayerOnePosition);
-
-//Start Button Event listener which adds Bambi to the board at the bottom center of the page, and removes the start button from display
+//Start Button Event listener which adds Bambi to the board at the bottom center of the page, sets intervals to check for player movement and removes the start button from display
 $startButton.on("click", function(){
     checkPlayerOnePosition = setInterval(playerOneMovement, 600);
+    checkPlayerTwoPosition = setInterval(playerTwoMovement, 40);
     $playerTwo.css({display: "inline-block", left: $gameboard.offset().left + ($gameboard.width() / 2), top: $gameboard.height()});
     $spider.css({display: "inline-block"})
     $(this).css({display: "none"});
     $bambiLossText.css({display: "none"})
     $bambiWinText.css({display: "none"})
     spiderCounter = 0
+    backgroundMusic.play()
+    yelp.currentTime = 0
     })
 
 //Constructor function for making spider
 function SpiderThrow(key){
     //Linking to spider Image and appending to game board
     var $newSpider = $("<img class='spider' src='images/spider.png'>");
+    $newSpider.addClass("spider");
     $gameboard.append($newSpider);
     if(key == 87){
         $newSpider.css({left: $gameboard.offset().left + $newSpider.width()})
@@ -144,11 +148,9 @@ function SpiderThrow(key){
             $spiderDodge.html("Bambi was DEVOURED!");
             //Remove Bambi from GameBoard after Getting hit
             $playerTwo.css({display: "none"});
-            // Remove Interval Checking for Player One Position and Allowing Player One to Throw Spiders
-            clearInterval(checkPlayerOnePosition);
-            //Add in Bambi Loss Paragraph and Start Button
+            yelp.play();
+            gameEnd();
             $bambiLossText.css({display: "block"})
-            $startButton.css({display: "inline-block"})
         }
     }, 40)
 }
@@ -157,9 +159,21 @@ function SpiderThrow(key){
 //Secret Option where Bambi Wins
 function bambiWins(){
     if(spiderCounter > 50){
-        $playerTwo.css({display: "none"});
+        gameEnd();
         $bambiWinText.css({display: "block"});
-        $startButton.css({display: "inline-block"})
-        clearInterval(checkPlayerOnePosition)
+        vicBark.play()
     }
+}
+
+//End Game steps for use in either win
+function gameEnd(){
+    $(".spider").remove()
+    // Remove Interval Checking for Player One Position and Allowing Player One to Throw Spiders and Player Two Interval
+    clearInterval(checkPlayerOnePosition);
+    clearInterval(checkPlayerTwoPosition);
+    //Add in Bambi Loss Paragraph and Start Button
+    $startButton.css({display: "inline-block"})
+    //Stop Music and Reset
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
 }
