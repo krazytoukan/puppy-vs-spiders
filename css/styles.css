@@ -15,16 +15,23 @@
     display: none
 }
 
+#controls {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 300px;
+}
+
 #start-button{
     font-size: 40px;
     color: #ba3422;
-    border: solid 5px;
-    border-color:  #ba3422;
+    border: solid 5px #ba3422;
     font-family: "Creepster", cursive;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 5px;
     text-align: center;
     display: inline-block;
+    margin: 0 auto;
 }
 
 .spider{
@@ -59,12 +66,12 @@ body {
     transform: scaleX(-1);
   }
 
-  #hi-score {
-      color: rgb(223, 189, 1)
+#hi-score {
+    color: rgb(223, 189, 1)
   }
 
-#bambi-loss {
+#bambi-loss, #bambi-win {
     color: #ba3422;
     display: none;
-   padding-top: 300px
+    padding-top: 300px
 }

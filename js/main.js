@@ -10,6 +10,8 @@ var $hiScore = $("#hi-score")
 var hiScore = 0;
 var $startButton = $("#start-button")
 var $bambiLossText = $("#bambi-loss")
+var $bambiWinText = $("#bambi-win")
+var checkPlayerOnePosition
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -88,16 +90,16 @@ function playerOneMovement(){
 
 //Naming the Player One position Interval
 
-var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
-clearInterval(checkPlayerOnePosition);
+// clearInterval(checkPlayerOnePosition);
 
 //Start Button Event listener which adds Bambi to the board at the bottom center of the page, and removes the start button from display
 $startButton.on("click", function(){
-    checkPlayerOnePosition;
+    checkPlayerOnePosition = setInterval(playerOneMovement, 600);
     $playerTwo.css({display: "inline-block", left: $gameboard.offset().left + ($gameboard.width() / 2), top: $gameboard.height()});
     $spider.css({display: "inline-block"})
     $(this).css({display: "none"});
     $bambiLossText.css({display: "none"})
+    $bambiWinText.css({display: "none"})
     })
 
 //Constructor function for making spider
@@ -154,7 +156,10 @@ function SpiderThrow(key){
 //Secret Option where Bambi Wins
 function bambiWins(){
     if(spiderCounter > 50){
-    alert("Holy Shit! Bambi Beat the Spiders!");
-    spiderCounter = 0;
+        $playerTwo.css({display: "none"});
+        $bambiWinText.css({display: "block"});
+        $startButton.css({display: "inline-block"})
+        spiderCounter = 0;
+        clearInterval(checkPlayerOnePosition)
     }
 }
