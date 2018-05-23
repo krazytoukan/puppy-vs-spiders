@@ -21,6 +21,9 @@
     border: solid 5px;
     border-color:  #ba3422;
     font-family: "Creepster", cursive;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center
 }
 
 .spider{
@@ -58,3 +61,9 @@ body {
   #hi-score {
       color: rgb(223, 189, 1)
   }
+
+#bambi-loss {
+    color: #ba3422;
+    display: none;
+   padding-top: 300px
+}

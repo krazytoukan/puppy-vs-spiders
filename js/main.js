@@ -9,6 +9,7 @@ var trackedKeys = new Array();
 var $hiScore = $("#hi-score")
 var hiScore = 0;
 var $startButton = $("#start-button")
+var $bambiLossText = $("#bambi-loss")
 
 //Prevent moving window with Space and Arrow Keys
 document.addEventListener("keydown", function(e) {
@@ -17,7 +18,6 @@ document.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
 }, false);
-
 
 
 //Create Movement for player two based on key press
@@ -86,13 +86,12 @@ function playerOneMovement(){
     }
 }
 
-//Interval Checking Player one holding things down
-
-//Start Button Event listener which starts interval for Spider Movement,adds Bambi to the Board, and removes the start button from display
+//Start Button Event listener which starts interval for Spider Movement,adds Bambi to the board at the bottom center of the page, and removes the start button from display
 $startButton.on("click", function(){
     var checkPlayerOnePosition = setInterval(playerOneMovement, 600);
-    $playerTwo.css({display: "inline-block"});
-    $(this).css({display: "none"})
+    $playerTwo.css({display: "inline-block", left: $gameboard.offset().left + ($gameboard.width() / 2), top: $gameboard.height()});
+    $(this).css({display: "none"});
+    $bambiLossText.css({display: "none"})
     })
 
 //Constructor function for making spider
@@ -130,7 +129,6 @@ function SpiderThrow(key){
         $newSpider.offset().left + $newSpider.width() > $playerTwo.offset().left + 40 &&
         $newSpider.offset().top < ($playerTwo.offset().top + $playerTwo.height()) &&
         $newSpider.offset().top + $newSpider.height() > $playerTwo.offset().top + 50){
-            console.log("collision detected");
             $newSpider.remove()
             clearInterval(spiderMovement)
             spiderCounter = 0
