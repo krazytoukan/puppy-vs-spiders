@@ -8,7 +8,7 @@ https://git.generalassemb.ly/pages/krazytoukan/spider-thrower/
 
 ## Welcome to the Game
 
-###Concept
+### Concept
 
 The concept of the game is simple. Two players square off against each other with everything on the line. Player Two controls the protagonist of this tale, the adorable corgi, Bambi. Player Two controls Bambi using the arrow keys of the key board.  Bambi has full range of movement on the game screen, but will likely want to avoid heading to the top of the screen.
 
@@ -18,11 +18,11 @@ The goal for Player One is to hit Bambi with a spider, the goal for Player Two i
 
 ## Mechanics
 
-###Platform
+### Platform
 The game is built predominantly in HTML and Javascript with most of the elements heavily styled with CSS.  The Javascript implements jQuery and jQuery objects as well.
 
 
-###Movement
+### Movement
 Movement is based on keys which are tracked with event listeners for both keyup and keydown so that both players can use the keyboard at the same time.  While a key is depressed, that key is added to an array and the movement functions for both players are set to constantly check that array to see if one of the players buttons is held down and perform an action accordingly.
 
 Bambi's movement is instantaneous, with his furry little paws carrying him away as soon as you press an arrow key.
@@ -38,26 +38,26 @@ Additionally, Bambi is kept inside the playing board by collision detection.
 
 The constructed spiders remove themselves from the game and cease their interval movement when they hit the bottom of the board.
 
-####Music and Sounds
+#### Music and Sounds
 Currently, the game has background music and a defeat yelp and victory bark for Bambi which are implemented through Javascript which begin running on start. The background music loops.
 
-##Initial WireFrame
+## Initial WireFrame
 
 Below is the initial planning and wireframe for the game (originally Bambi was planned to be a bird. Well, time makes fools of us all.)
 
-####Original Gameboard Idea
+#### Original Gameboard Idea
 ![original gameboard plan](https://i.imgur.com/JAPfPFG.jpg)
 
-####Initial thoughts on Player One
+#### Initial thoughts on Player One
 ![Player One initial development](https://i.imgur.com/nfMsHub.jpg)
 
-####Initial thoughts on Player Two
+#### Initial thoughts on Player Two
 ![Player Two initial development](https://i.imgur.com/vmetwI5.jpg)
 
-####Ending the game
+#### Ending the game
 ![Ending the Game](https://i.imgur.com/bf0BMYT.jpg)
 
-#Art, Animation, and Music
+# Art, Animation, and Music
 
 The pixel dungeon background for this game was created by Dave Grey.
 
@@ -67,8 +67,8 @@ The music used is a piece by the name of Shoddy Haunt by mathgrant on freemusica
 
 That glorious 8-bit spider? That's all Cambou baby.
 
-#Backlog and Planned Additions
+# Backlog and Planned Additions
 
-At this time I'm planning on adding a one-player option where spider's are randomly created and dropped from the ceiling for Bambi to avoid.
+At this time I'm planning on adding a one-player option where spiders are randomly created and dropped from the ceiling for Bambi to avoid.
 
 I'd also like to add some additional sprites for different Player Two so that people can choose what they're putting up against the spiders.
