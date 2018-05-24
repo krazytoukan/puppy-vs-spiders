@@ -78,3 +78,9 @@ body {
 #bambi-win{
     color: rgb(223, 189, 1)  
 }
+
+footer {
+    text-align: center;
+    font-size: 20px;
+    color: grey
+}
