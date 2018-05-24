@@ -3,7 +3,7 @@
 ## Play the Game at:
 https://git.generalassemb.ly/pages/krazytoukan/spider-thrower/
 
-###Game in action:
+### Game in action:
 ![screenshot of the game in action](https://i.imgur.com/FE9IVeA.png)
 
 ## Welcome to the Game
@@ -12,7 +12,7 @@ https://git.generalassemb.ly/pages/krazytoukan/spider-thrower/
 
 The concept of the game is simple. Two players square off against each other with everything on the line. Player Two controls the protagonist of this tale, the adorable corgi, Bambi. Player Two controls Bambi using the arrow keys of the key board.  Bambi has full range of movement on the game screen, but will likely want to avoid heading to the top of the screen.
 
-The reason Bambi will want to avoid the top of the screen? Spiders of course! Player One can drop spiders from the top of the screen with the Q, W, E, R, T, and Space buttons.  Each button drops a spider which takes up 1/5 of the width of the playing field. 
+The reason Bambi will want to avoid the top of the screen? Spiders of course! Player One can drop spiders from the top of the screen with the Q, W, E, R, and Space buttons.  Each button drops a spider which takes up 1/5 of the width of the playing field. 
 
 The goal for Player One is to hit Bambi with a spider, the goal for Player Two is to avoid spiders at all costs.  The game is set to end when Bambi is hit with a spider or, with the secret more rewarding ending of Bambi avoiding 50 spiders and escaping.
 
